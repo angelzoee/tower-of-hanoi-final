@@ -686,6 +686,9 @@ def main():
         instructions_screen()  # Show instructions after menu
         make_disks()
         
+        global start_time
+        start_time = time.time()  # Set start_time when game loop starts
+        
         # Main game loop
         while not game_done:
             elapsed_time = time.time() - start_time  # Update elapsed time
