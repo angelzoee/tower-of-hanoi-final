@@ -680,14 +680,14 @@ def main():
     # Main game loop and management
     while True:  # Outer loop to handle returning to menu
         # Call menu screen
+        global steps
         game_done = False
         steps = 0
+
         menu_screen()
         instructions_screen()  # Show instructions after menu
         make_disks()
         
-        global start_time
-        start_time = time.time()  # Set start_time when game loop starts
         
         # Main game loop
         while not game_done:
@@ -700,7 +700,7 @@ def main():
             draw_ptr()
             
             blit_text(screen, f'Steps: {steps}', (400, 20), size=30)
-            blit_text(screen, f'Time: {int(elapsed_time)}s', (400, 50), size=30)  # Display timer
+            blit_text(screen, f'Time: {int(elapsed_time)}s', (50, 20), size=30)  # Display timer at top left
             player_text_rect = blit_text(screen, f'Player: {player_id}', (700, 20), size=24)  # Display player name and get rect
             draw_settings_button()  # Show settings button
             
